@@ -1,0 +1,51 @@
+{
+  "name": "grunt-clean-console",
+  "description": "Quick JavaScript error sanity check for deployed pages",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bahmutov/grunt-clean-console",
+  "author": {
+    "name": "Gleb Bahmutov",
+    "email": "gleb.bahmutov@gmail.com",
+    "url": "http://glebbahmutov.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bahmutov/grunt-clean-console.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bahmutov/grunt-clean-console/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/bahmutov/grunt-clean-console/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "pre-commit": "grunt",
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.7.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt": "~0.4.1",
+    "pre-git": "0.0.13",
+    "grunt-complexity": "~0.1.3"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin",
+    "package",
+    "validator",
+    "npm"
+  ],
+  "dependencies": {
+    "check-types": "~1.1.0"
+  }
+}
