@@ -1,6 +1,6 @@
 /*
- * grunt-nice-package
- * https://github.com/bahmutov/grunt-nice-package
+ * grunt-clean-console
+ * https://github.com/bahmutov/grunt-clean-console
  *
  * Copyright (c) 2013 Gleb Bahmutov
  * Licensed under the MIT license.
@@ -22,11 +22,6 @@ module.exports = function(grunt) {
       },
     },
 
-    // Before generating any new files, remove any previously-created files.
-    clean: {
-      tests: ['tmp'],
-    },
-
     complexity: {
       all: {
         src: ['*.js', 'tasks/*.js'],
@@ -34,18 +29,6 @@ module.exports = function(grunt) {
           cyclomatic: 5,
           halstead: 10,
           maintainability: 100
-        }
-      }
-    },
-
-    // Configuration to be run (and then tested).
-    'nice-package': {
-      all: {
-        options: {
-          version: function (value) {
-            console.log('value should be version', value);
-            return (/\d{1,2}\.\d{1,2}\.\d{1,2}/).test(value);
-          }
         }
       }
     }
@@ -61,7 +44,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'nice-package']);
+  grunt.registerTask('test', ['clean-console']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test', 'complexity']);
