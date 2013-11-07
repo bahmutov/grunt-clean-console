@@ -1,6 +1,7 @@
 # grunt-clean-console
 
-> Quick JavaScript error sanity check for deployed pages
+> Quick JavaScript error sanity check for deployed pages using
+[clean-console](https://github.com/bahmutov/clean-console)
 
 [![NPM][grunt-clean-console-icon]][grunt-clean-console-url]
 
@@ -15,6 +16,8 @@
 ```shell
 npm install grunt-clean-console --save-dev
 ```
+
+**note** this does not install phantomjs, assumes it is in the path.
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
