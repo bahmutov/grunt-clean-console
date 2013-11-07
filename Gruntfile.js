@@ -8,7 +8,7 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -22,13 +22,12 @@ module.exports = function(grunt) {
       },
     },
 
-    complexity: {
+    complexity: grunt.file.readJSON('complexity.json'),
+
+    'clean-console': {
       all: {
-        src: ['*.js', 'tasks/*.js'],
         options: {
-          cyclomatic: 5,
-          halstead: 10,
-          maintainability: 100
+          urls: 'test/index.html'
         }
       }
     }

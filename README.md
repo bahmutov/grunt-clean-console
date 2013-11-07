@@ -1,57 +1,37 @@
-# grunt-nice-package
+# grunt-clean-console
 
-> Opinionated package.json validator
+> Quick JavaScript error sanity check for deployed pages
 
-[![NPM info][nodei.co]](https://npmjs.org/package/grunt-nice-package)
+[![NPM][grunt-clean-console-icon]][grunt-clean-console-url]
 
-[![Build status][ci-image]][ci-url]
-[![dependencies][dependencies-image]][dependencies-url]
+[![Build status][grunt-clean-console-ci-image]][grunt-clean-console-ci-url]
+[![dependencies][grunt-clean-console-dependencies-image]][grunt-clean-console-dependencies-url]
+[![devdependencies][grunt-clean-console-devdependencies-image]][grunt-clean-console-devdependencies-url]
+
 [![endorse][endorse-image]][endorse-url]
 
 ## Install
 
 ```shell
-npm install grunt-nice-package --save-dev
+npm install grunt-clean-console --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-nice-package');
+grunt.loadNpmTasks('grunt-clean-console');
 grunt.initConfig({
-  'nice-package': {
+  'clean-console': {
     all: {
       options: {
-        version: function (value) {
-          // strict version number validation
-          return (/\d{1,2}\.\d{1,2}\.\d{1,2}/).test(value);
-        }
+        url: "dist/index.html"
       }
     }
   }
 })
 ```
 
-Please return `true` if the check passes from custom validation functions.
-
-After the property validators pass, package.json is further checked using
-[package-json-validator](http://package-json-validator.com/) by Nick Sullivan.
-It will check the required properties, and provide suggestions for
-the recommended ones.
-
-## Options
-
-You can define a validation function for any property of the *package.json*, by default
-the validation will check:
-
-* name
-* version
-* description
-* license or licenses
-* keywords (array of strings)
-
-For complete list see
-[nice_package.js](https://github.com/bahmutov/grunt-nice-package/blob/master/tasks/nice_package.js#L24) for details.
+**url** could point to local file, remote url or list of urls `url: ["dist/index.html", "http://localhost:8080/index.html"]`
 
 ## Small print
 
@@ -61,10 +41,13 @@ License: MIT - do anything with the code, but don't blame me if it does not work
 
 Support: if you find any problems with this module, email / tweet / open issue on Github
 
-[ci-image]: https://travis-ci.org/bahmutov/grunt-nice-package.png?branch=master
-[ci-url]: https://travis-ci.org/bahmutov/grunt-nice-package
-[nodei.co]: https://nodei.co/npm/grunt-nice-package.png?downloads=true
-[dependencies-image]: https://david-dm.org/bahmutov/grunt-nice-package.png
-[dependencies-url]: https://david-dm.org/bahmutov/grunt-nice-package
+[grunt-clean-console-icon]: https://nodei.co/npm/grunt-clean-console.png?downloads=true
+[grunt-clean-console-url]: https://npmjs.org/package/grunt-clean-console
+[grunt-clean-console-ci-image]: https://travis-ci.org/bahmutov/grunt-clean-console.png?branch=master
+[grunt-clean-console-ci-url]: https://travis-ci.org/bahmutov/grunt-clean-console
+[grunt-clean-console-dependencies-image]: https://david-dm.org/bahmutov/grunt-clean-console.png
+[grunt-clean-console-dependencies-url]: https://david-dm.org/bahmutov/grunt-clean-console
+[grunt-clean-console-devdependencies-image]: https://david-dm.org/bahmutov/grunt-clean-console/dev-status.png
+[grunt-clean-console-devdependencies-url]: https://david-dm.org/bahmutov/grunt-clean-console#info=devDependencies
 [endorse-image]: https://api.coderwall.com/bahmutov/endorsecount.png
 [endorse-url]: https://coderwall.com/bahmutov

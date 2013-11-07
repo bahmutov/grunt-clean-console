@@ -1,6 +1,6 @@
 /*
- * grunt-nice-package
- * https://github.com/bahmutov/grunt-nice-package
+ * grunt-clean-console
+ * https://github.com/bahmutov/grunt-clean-console
  *
  * Copyright (c) 2013 Gleb Bahmutov
  * Licensed under the MIT license.
@@ -8,115 +8,33 @@
 
 'use strict';
 
-var PJV = require('package-json-validator').PJV;
 var check = require('check-types');
 
-function unary(fn) {
-  return function (first) {
-    return fn(first);
-  };
-}
+module.exports = function (grunt) {
 
-module.exports = function(grunt) {
+  function hasValue(v) {
+    return !!v;
+  }
 
-  var is = function (type, name, value) {
-    if (!check[type](value)) {
-      grunt.log.error('expected', name, 'to be', type, 'not', value);
-      return false;
-    }
-    return true;
-  };
+  var title = 'Quickly checks deployed page for JavaScript errors';
+  grunt.registerMultiTask('clean-console', title, function () {
 
-  var defaultValidators = {
-    name: is.bind(null, 'string', 'name'),
-    version: is.bind(null, 'string', 'version'),
-    description: is.bind(null, 'string', 'description'),
-
-    keywords: function (values) {
-      if (!check.array(values)) {
-        grunt.log.error('expected keywords to be an Array');
-        return false;
-      }
-
-      return values.every(function (keyword) {
-        if (!check.string(keyword)) {
-          grunt.log.error('every keyword should be a string, found', keyword);
-          return false;
-        }
-        return true;
-      });
-    },
-    author: function (value) {
-      if (!check.object(value) &&
-        !check.string(value)) {
-        grunt.log.error('invalid author value', value);
-        return false;
-      }
-      return true;
-    },
-    repository: function (value) {
-      if (!check.object(value)) {
-        grunt.log.error('expected repository to be an object, not', value);
-        return false;
-      }
-      if (!check.string(value.type)) {
-        grunt.log.error('expected repository type to be a string, not', value.type);
-        return false;
-      }
-      if (!check.string(value.url)) {
-        grunt.log.error('expected repository url to be a string, not', value.url);
-        return false;
-      }
-      return true;
-    }
-  };
-
-  grunt.registerMultiTask('nice-package', 'Opinionated package.json validator', function() {
-    // Merge custom validation functions with default ones
-    var options = this.options(defaultValidators);
-
-    var pkg = grunt.file.readJSON('package.json');
-
-    var every = Object.keys(options).every(function (key) {
-      grunt.verbose.writeln('checking property', key);
-
-      var property = pkg[key];
-      if (!property) {
-        grunt.log.error('package.json missing', key);
-        return false;
-      }
-      if (typeof options[key] === 'function') {
-        if (!options[key](property)) {
-          grunt.log.error('failed check for property', key);
-          return false;
-        }
-      }
-
-      return true;
+    var opts = this.options({
+      urls: []
     });
 
-    if (!every) {
-      // return false;
+    if (check.string(opts.urls)) {
+      opts.urls = [opts.urls];
     }
 
-    // advanced checking
-    if (!check.string(pkg.license) &&
-      !check.array(pkg.licenses)) {
-      grunt.log.error('missing license information');
-      return false;
-    }
+    var urls = opts.urls.concat(opts.url).filter(hasValue);
 
-    var result = PJV.validate(JSON.stringify(pkg, null, 2));
-    if (!result.valid) {
-      grunt.log.subhead("Errors:");
-      result.errors.forEach(unary(grunt.log.error));
-    }
-    if (check.array(result.warnings) &&
-      result.warnings.length) {
-      grunt.log.subhead("Warnings:");
-      result.warnings.forEach(unary(grunt.log.warn));
-    }
-    return !!result.valid;
+    check.verify.array(urls, 'missing url(s) to check');
+    var allValid = urls.every(function (url) {
+      grunt.verbose.writeln('checking', url);
+      return true;
+    });
+    return allValid;
   });
 
 };
