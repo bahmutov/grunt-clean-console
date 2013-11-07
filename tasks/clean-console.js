@@ -10,7 +10,7 @@
 
 var check = require('check-types');
 var cleanConsoleCheck = require('clean-console');
-var q = require('q');
+var qx = require('qx');
 
 module.exports = function (grunt) {
 
@@ -43,10 +43,12 @@ module.exports = function (grunt) {
     });
 
     var done = this.async();
-    console.log('url checks', urlChecks);
-    urlChecks.reduce(q.when, q()).done(function (code) {
-      console.log('all urls finished with code', code);
-      done();
+
+    qx.some(urlChecks).then(function (someCheckFailed) {
+      if (someCheckFailed) {
+        grunt.log.error('one of the urls failed clean-console check');
+      }
+      done(!someCheckFailed);
     });
   });
 

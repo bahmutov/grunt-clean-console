@@ -27,7 +27,7 @@ module.exports = function (grunt) {
     'clean-console': {
       all: {
         options: {
-          urls: 'test/index.html'
+          urls: ['test/index.html']
         }
       }
     }
