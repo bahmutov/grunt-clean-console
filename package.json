@@ -46,6 +46,8 @@
     "deploy"
   ],
   "dependencies": {
-    "check-types": "~1.1.0"
+    "check-types": "~1.1.0",
+    "clean-console": "0.0.6",
+    "q": "~0.9.7"
   }
 }
