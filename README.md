@@ -24,14 +24,21 @@ grunt.initConfig({
   'clean-console': {
     all: {
       options: {
-        url: "dist/index.html"
+        url: 'dist/index.html'
       }
     }
   }
 })
 ```
 
-**url** could point to local file, remote url or list of urls `url: ["dist/index.html", "http://localhost:8080/index.html"]`
+**url** could point to a local file, a remote url or a list of urls
+```js
+// test local file
+url: 'dist/index.html'
+
+// test several urls, local and remote
+url: ['dist/index.html', 'http://localhost:8080/index.html']
+```
 
 ## Small print
 

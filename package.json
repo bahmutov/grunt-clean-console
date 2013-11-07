@@ -26,7 +26,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt && grunt test"
   },
   "pre-commit": "grunt",
   "devDependencies": {
@@ -41,9 +41,9 @@
   },
   "keywords": [
     "gruntplugin",
-    "package",
-    "validator",
-    "npm"
+    "JavaScript",
+    "error",
+    "deploy"
   ],
   "dependencies": {
     "check-types": "~1.1.0"
