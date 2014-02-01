@@ -9,6 +9,7 @@
 'use strict';
 
 var check = require('check-types');
+var verify = check.verify;
 var cleanConsoleCheck = require('clean-console');
 var qx = require('qx');
 
@@ -23,7 +24,7 @@ module.exports = function (grunt) {
 
     var opts = this.options({
       urls: [],
-      timeout: 5000
+      timeout: 5
     });
 
     if (check.string(opts.urls)) {
@@ -31,9 +32,9 @@ module.exports = function (grunt) {
     }
 
     var urls = opts.urls.concat(opts.url).filter(hasValue);
-    check.verify.array(urls, 'missing url(s) to check');
+    verify.array(urls, 'missing url(s) to check');
 
-    check.verify.positiveNumber(opts.timeout, 'invalid timeout ' + opts.timeout);
+    verify.positiveNumber(opts.timeout, 'invalid timeout ' + opts.timeout);
 
     var urlChecks = urls.map(function (url) {
       return cleanConsoleCheck.bind(null, {

@@ -27,7 +27,8 @@ grunt.initConfig({
   'clean-console': {
     all: {
       options: {
-        url: 'dist/index.html'
+        url: 'dist/index.html',
+        timeout: 5 // seconds to wait for any errors
       }
     }
   }

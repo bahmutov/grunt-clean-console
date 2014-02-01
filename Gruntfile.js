@@ -32,7 +32,8 @@ module.exports = function (grunt) {
       },
       asyncError: {
         options: {
-          urls: ['test/async_error.html']
+          urls: ['test/async_error.html'],
+          timeout: 10
         }
       }
     }
