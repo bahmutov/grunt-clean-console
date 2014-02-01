@@ -37,10 +37,18 @@ module.exports = function (grunt) {
     verify.positiveNumber(opts.timeout, 'invalid timeout ' + opts.timeout);
 
     var urlChecks = urls.map(function (url) {
-      return cleanConsoleCheck.bind(null, {
+      var checkUrl = cleanConsoleCheck.bind(null, {
         url: url,
         timeout: opts.timeout
       });
+
+      return function () {
+        return checkUrl().then(function onFinishedCheckingUrl(errorsNumber) {
+          if (errorsNumber) {
+            console.log('url', url, 'has', errorsNumber, 'error(s)');
+          }
+        });
+      };
     });
 
     var done = this.async();
@@ -50,7 +58,7 @@ module.exports = function (grunt) {
         grunt.log.error('one of the urls failed clean-console check');
       }
       done(!someCheckFailed);
-    });
+    }).done();
   });
 
 };
