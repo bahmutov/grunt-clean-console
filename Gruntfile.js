@@ -25,9 +25,14 @@ module.exports = function (grunt) {
     complexity: grunt.file.readJSON('complexity.json'),
 
     'clean-console': {
-      all: {
+      noErrors: {
         options: {
           urls: ['test/index.html']
+        }
+      },
+      asyncError: {
+        options: {
+          urls: ['test/async_error.html']
         }
       }
     }
@@ -43,7 +48,7 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean-console']);
+  grunt.registerTask('test', ['clean-console:noErrors']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test', 'complexity']);
