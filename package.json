@@ -46,7 +46,7 @@
   ],
   "dependencies": {
     "check-types": "~1.1.1",
-    "clean-console": "~0.2.1",
+    "clean-console": "~0.2.2",
     "q": "~1.0.0",
     "qx": "~0.2.4"
   }
