@@ -42,16 +42,14 @@ module.exports = function (grunt) {
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-complexity');
+  var plugins = module.require('matchdep').filterDev('grunt-*');
+  plugins.forEach(grunt.loadNpmTasks);
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
   grunt.registerTask('test', ['clean-console:noErrors']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test', 'complexity']);
+  grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint', 'test', 'complexity']);
 
 };

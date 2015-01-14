@@ -46,6 +46,7 @@ module.exports = function (grunt) {
         return checkUrl().then(function onFinishedCheckingUrl(errorsNumber) {
           if (errorsNumber) {
             console.log('url', url, 'has', errorsNumber, 'error(s)');
+            return Boolean(errorsNumber);
           }
         });
       };

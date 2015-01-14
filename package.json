@@ -2,19 +2,42 @@
   "name": "grunt-clean-console",
   "description": "Quick JavaScript error sanity check for deployed pages",
   "version": "0.1.1",
-  "homepage": "https://github.com/bahmutov/grunt-clean-console",
   "author": {
     "name": "Gleb Bahmutov",
     "email": "gleb.bahmutov@gmail.com",
     "url": "http://glebbahmutov.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/bahmutov/grunt-clean-console.git"
-  },
   "bugs": {
     "url": "https://github.com/bahmutov/grunt-clean-console/issues"
   },
+  "contributors": [],
+  "dependencies": {
+    "check-types": "1.4.0",
+    "clean-console": "0.2.2",
+    "q": "2.0.2",
+    "qx": "0.2.4"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-complexity": "0.2.0",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-deps-ok": "0.5.2",
+    "grunt-nice-package": "0.9.2",
+    "matchdep": "0.3.0",
+    "pre-git": "0.1.1"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "homepage": "https://github.com/bahmutov/grunt-clean-console",
+  "keywords": [
+    "gruntplugin",
+    "JavaScript",
+    "error",
+    "deploy"
+  ],
+  "license": "MIT",
   "licenses": [
     {
       "type": "MIT",
@@ -22,32 +45,13 @@
     }
   ],
   "main": "Gruntfile.js",
-  "engines": {
-    "node": ">= 0.8.0"
+  "pre-commit": "grunt",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bahmutov/grunt-clean-console.git"
   },
   "scripts": {
-    "test": "grunt && grunt test"
-  },
-  "pre-commit": "grunt",
-  "devDependencies": {
-    "grunt-complexity": "0.2.0",
-    "grunt-contrib-clean": "0.6.0",
-    "grunt-contrib-jshint": "0.10.0",
-    "pre-git": "0.1.1"
-  },
-  "peerDependencies": {
-    "grunt": "~0.4.1"
-  },
-  "keywords": [
-    "gruntplugin",
-    "JavaScript",
-    "error",
-    "deploy"
-  ],
-  "dependencies": {
-    "check-types": "1.4.0",
-    "clean-console": "~0.2.2",
-    "q": "2.0.2",
-    "qx": "~0.2.4"
+    "test": "grunt && grunt test",
+    "asyncError": "grunt clean-console:asyncError"
   }
 }
