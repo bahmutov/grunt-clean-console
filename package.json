@@ -48,7 +48,7 @@
   ],
   "main": "Gruntfile.js",
   "pre-commit": [
-    "grunt",
+    "$(npm bin)/grunt",
     "npm version"
   ],
   "repository": {
