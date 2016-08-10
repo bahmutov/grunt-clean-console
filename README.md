@@ -8,8 +8,7 @@
 [![Build status][grunt-clean-console-ci-image]][grunt-clean-console-ci-url]
 [![dependencies][grunt-clean-console-dependencies-image]][grunt-clean-console-dependencies-url]
 [![devdependencies][grunt-clean-console-devdependencies-image]][grunt-clean-console-devdependencies-url]
-
-[![endorse][endorse-image]][endorse-url]
+[![semantic-release][semantic-image] ][semantic-url]
 
 ## Install
 
@@ -48,17 +47,21 @@ url: ['dist/index.html', 'http://localhost:8080/index.html']
 
 Author: Gleb Bahmutov &copy; 2013
 
+* [@bahmutov](https://twitter.com/bahmutov)
+* [glebbahmutov.com](http://glebbahmutov.com)
+* [blog](http://glebbahmutov.com/blog)
+
 License: MIT - do anything with the code, but don't blame me if it does not work.
 
 Support: if you find any problems with this module, email / tweet / open issue on Github
 
-[grunt-clean-console-icon]: https://nodei.co/npm/grunt-clean-console.png?downloads=true
+[grunt-clean-console-icon]: https://nodei.co/npm/grunt-clean-console.svg?downloads=true
 [grunt-clean-console-url]: https://npmjs.org/package/grunt-clean-console
-[grunt-clean-console-ci-image]: https://travis-ci.org/bahmutov/grunt-clean-console.png?branch=master
+[grunt-clean-console-ci-image]: https://travis-ci.org/bahmutov/grunt-clean-console.svg?branch=master
 [grunt-clean-console-ci-url]: https://travis-ci.org/bahmutov/grunt-clean-console
-[grunt-clean-console-dependencies-image]: https://david-dm.org/bahmutov/grunt-clean-console.png
+[grunt-clean-console-dependencies-image]: https://david-dm.org/bahmutov/grunt-clean-console.svg
 [grunt-clean-console-dependencies-url]: https://david-dm.org/bahmutov/grunt-clean-console
-[grunt-clean-console-devdependencies-image]: https://david-dm.org/bahmutov/grunt-clean-console/dev-status.png
+[grunt-clean-console-devdependencies-image]: https://david-dm.org/bahmutov/grunt-clean-console/dev-status.svg
 [grunt-clean-console-devdependencies-url]: https://david-dm.org/bahmutov/grunt-clean-console#info=devDependencies
-[endorse-image]: https://api.coderwall.com/bahmutov/endorsecount.png
-[endorse-url]: https://coderwall.com/bahmutov
+[semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-url]: https://github.com/semantic-release/semantic-release
